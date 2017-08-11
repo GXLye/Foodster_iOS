@@ -14,12 +14,16 @@ class FirstViewController: UIViewController, UITableViewDelegate, MKMapViewDeleg
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tableView: UITableView!
     
+    var annotations: [MKPointAnnotation] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        mapView.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -34,19 +38,59 @@ class FirstViewController: UIViewController, UITableViewDelegate, MKMapViewDeleg
             print(cuisines)
         }
         
-        let annotationView = MKPinAnnotationView()
-        annotationView.animatesDrop = true
-        var annotations: [MKPointAnnotation] = []
+        mapView.removeAnnotations(annotations)
+        
         
         for restaurant in Constants.sampleRest {
             let annotation = MKPointAnnotation()
             annotation.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(restaurant.latitude)!, longitude: CLLocationDegrees(restaurant.longitude)!)
             annotation.title = restaurant.name
+            if let distance = userDistance(from: annotation) {
+                annotation.subtitle = "\(distance.noDecimal)"
+            }
 //            mapView.addAnnotation(annotation)
             annotations.append(annotation)
         }
         mapView.showAnnotations(annotations, animated: true)
         
+    }
+    
+    /// Returns the distance (in meters) from the
+    /// user's location to the specified point.
+    private func userDistance(from point: MKPointAnnotation) -> Double? {
+        guard let userLocation = mapView.userLocation.location else {
+            return nil // User location unknown!
+        }
+        let pointLocation = CLLocation(
+            latitude:  point.coordinate.latitude,
+            longitude: point.coordinate.longitude
+        )
+        return userLocation.distance(from: pointLocation)
+    }
+    
+    /*func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let identifier = "pin"
+        var view: MKPinAnnotationView
+        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+            as? MKPinAnnotationView {
+            dequeuedView.annotation = annotation
+            view = dequeuedView
+        } else {
+            view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            view.canShowCallout = true
+            view.animatesDrop = true
+            view.calloutOffset = CGPoint(x: -5, y: 5)
+            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
+        }
+        return view
+    }*/
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        for (index, restaurant) in Constants.sampleRest.enumerated() {
+            if restaurant.name == (view.annotation?.title)! {
+                tableView.scrollToRow(at: IndexPath(row:0, section: index), at: .top, animated: true)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

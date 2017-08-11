@@ -22,9 +22,7 @@ public struct Constants {
     
     
     static let sampleRest = [Restaurant(name: "Salam Noodles", latitude: "2.926002", longitude: "101.65159", image: ""),
-                             Restaurant(name: "myBurgerLab", latitude: "3.0158647", longitude: "101.5665644", image: ""),
-                             Restaurant(name: "Salam Noodles", latitude: "2.926002", longitude: "101.65159", image: ""),
-                             Restaurant(name: "Salam Noodles", latitude: "2.926002", longitude: "101.65159", image: "")]
+                             Restaurant(name: "myBurgerLab", latitude: "3.0158647", longitude: "101.5665644", image: "")]
     
 }
 
@@ -84,4 +82,17 @@ extension UIImageView {
         downloadedFrom(url: url, contentMode: mode)
     }
     
+}
+
+extension Double {
+    var dollarString:String {
+        return String(format: "$%.2f", self)
+    }
+    
+    var noDecimal:String {
+        if self > 1000.00 {
+            return String(format: "%.1fkm", self/1000)
+        }
+        return String(format: "%.0fm", self)
+    }
 }
