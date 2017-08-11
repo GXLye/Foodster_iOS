@@ -15,6 +15,7 @@
 		84D986471F3DBE5C0069B1F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84D986451F3DBE5C0069B1F4 /* LaunchScreen.storyboard */; };
 		84D986521F3DBE5C0069B1F4 /* FoodsterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D986511F3DBE5C0069B1F4 /* FoodsterTests.swift */; };
 		84D9865D1F3DBE5C0069B1F4 /* FoodsterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9865C1F3DBE5C0069B1F4 /* FoodsterUITests.swift */; };
+		84D9866B1F3DF0510069B1F4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9866A1F3DF0510069B1F4 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		84D986581F3DBE5C0069B1F4 /* FoodsterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodsterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D9865C1F3DBE5C0069B1F4 /* FoodsterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsterUITests.swift; sourceTree = "<group>"; };
 		84D9865E1F3DBE5C0069B1F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84D9866A1F3DF0510069B1F4 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				84D9863C1F3DBE5C0069B1F4 /* FirstViewController.swift */,
 				84D9863E1F3DBE5C0069B1F4 /* SecondViewController.swift */,
 				84D986401F3DBE5C0069B1F4 /* Main.storyboard */,
+				84D9866A1F3DF0510069B1F4 /* Constants.swift */,
 				84D986431F3DBE5C0069B1F4 /* Assets.xcassets */,
 				84D986451F3DBE5C0069B1F4 /* LaunchScreen.storyboard */,
 				84D986481F3DBE5C0069B1F4 /* Info.plist */,
@@ -268,6 +271,7 @@
 				84D9863F1F3DBE5C0069B1F4 /* SecondViewController.swift in Sources */,
 				84D9863B1F3DBE5C0069B1F4 /* AppDelegate.swift in Sources */,
 				84D9863D1F3DBE5C0069B1F4 /* FirstViewController.swift in Sources */,
+				84D9866B1F3DF0510069B1F4 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,6 +524,7 @@
 				84D986631F3DBE5C0069B1F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		84D986641F3DBE5C0069B1F4 /* Build configuration list for PBXNativeTarget "FoodsterTests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +533,7 @@
 				84D986661F3DBE5C0069B1F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		84D986671F3DBE5C0069B1F4 /* Build configuration list for PBXNativeTarget "FoodsterUITests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +542,7 @@
 				84D986691F3DBE5C0069B1F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
