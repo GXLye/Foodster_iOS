@@ -16,6 +16,9 @@
 		84D986521F3DBE5C0069B1F4 /* FoodsterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D986511F3DBE5C0069B1F4 /* FoodsterTests.swift */; };
 		84D9865D1F3DBE5C0069B1F4 /* FoodsterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9865C1F3DBE5C0069B1F4 /* FoodsterUITests.swift */; };
 		84D9866B1F3DF0510069B1F4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9866A1F3DF0510069B1F4 /* Constants.swift */; };
+		84D9866D1F3DFD5F0069B1F4 /* DietListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9866C1F3DFD5F0069B1F4 /* DietListViewController.swift */; };
+		84D9866F1F3DFD6D0069B1F4 /* CuisineListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9866E1F3DFD6D0069B1F4 /* CuisineListViewController.swift */; };
+		84D986711F3DFEAE0069B1F4 /* CreateTasteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D986701F3DFEAE0069B1F4 /* CreateTasteTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		84D9865C1F3DBE5C0069B1F4 /* FoodsterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsterUITests.swift; sourceTree = "<group>"; };
 		84D9865E1F3DBE5C0069B1F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84D9866A1F3DF0510069B1F4 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		84D9866C1F3DFD5F0069B1F4 /* DietListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DietListViewController.swift; sourceTree = "<group>"; };
+		84D9866E1F3DFD6D0069B1F4 /* CuisineListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuisineListViewController.swift; sourceTree = "<group>"; };
+		84D986701F3DFEAE0069B1F4 /* CreateTasteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTasteTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,9 @@
 				84D9863C1F3DBE5C0069B1F4 /* FirstViewController.swift */,
 				84D9863E1F3DBE5C0069B1F4 /* SecondViewController.swift */,
 				84D986401F3DBE5C0069B1F4 /* Main.storyboard */,
+				84D986701F3DFEAE0069B1F4 /* CreateTasteTableViewController.swift */,
+				84D9866C1F3DFD5F0069B1F4 /* DietListViewController.swift */,
+				84D9866E1F3DFD6D0069B1F4 /* CuisineListViewController.swift */,
 				84D9866A1F3DF0510069B1F4 /* Constants.swift */,
 				84D986431F3DBE5C0069B1F4 /* Assets.xcassets */,
 				84D986451F3DBE5C0069B1F4 /* LaunchScreen.storyboard */,
@@ -270,8 +279,11 @@
 			files = (
 				84D9863F1F3DBE5C0069B1F4 /* SecondViewController.swift in Sources */,
 				84D9863B1F3DBE5C0069B1F4 /* AppDelegate.swift in Sources */,
+				84D9866D1F3DFD5F0069B1F4 /* DietListViewController.swift in Sources */,
+				84D9866F1F3DFD6D0069B1F4 /* CuisineListViewController.swift in Sources */,
 				84D9863D1F3DBE5C0069B1F4 /* FirstViewController.swift in Sources */,
 				84D9866B1F3DF0510069B1F4 /* Constants.swift in Sources */,
+				84D986711F3DFEAE0069B1F4 /* CreateTasteTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
