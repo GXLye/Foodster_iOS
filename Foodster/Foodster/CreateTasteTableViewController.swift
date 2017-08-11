@@ -21,6 +21,20 @@ class CreateTasteTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        if let userDiets = UserDefaults.init(suiteName: Constants.groupKey)?.value(forKey: Constants.dietsKey) as? [String] {
+            for diet in userDiets {
+                diets.insert(diet)
+            }
+            
+            self.navigationItem.title = "Taste Profile"
+        }
+        
+        if let userCuisines = UserDefaults.init(suiteName: Constants.groupKey)?.value(forKey: Constants.cuisinesKey) as? [String] {
+            for cuisine in userCuisines {
+                cuisines.insert(cuisine)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,15 +44,43 @@ class CreateTasteTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    /*override func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
-    }*/
+        if section == 0 {
+            return Constants.diets.count
+        } else {
+            return Constants.cuisines.count
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return Constants.tasteProfile[section]
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let item = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        
+        if indexPath.section == 0 {
+            item.textLabel?.text = Constants.diets[indexPath.row]
+            
+            if diets.contains((item.textLabel?.text)!) {
+                item.accessoryType = .checkmark
+            }
+        } else {
+            item.textLabel?.text = Constants.cuisines[indexPath.row]
+            
+            if cuisines.contains((item.textLabel?.text)!) {
+                item.accessoryType = .checkmark
+            }
+        }
+        
+        return item
+    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = tableView.cellForRow(at: indexPath)!
@@ -81,6 +123,18 @@ class CreateTasteTableViewController: UITableViewController {
     @IBAction func createProfile(_ sender: Any) {
         print(diets)
         print(cuisines)
+        
+        // Saves to User Defaults
+        var dietsArr:[String] = []
+        var cuisinesArr:[String] = []
+        
+        dietsArr.append(contentsOf: diets)
+        cuisinesArr.append(contentsOf: cuisines)
+        
+        UserDefaults.init(suiteName: Constants.groupKey)?.set(dietsArr, forKey: Constants.dietsKey)
+        UserDefaults.init(suiteName: Constants.groupKey)?.set(cuisinesArr, forKey: Constants.cuisinesKey)
+        UserDefaults.init(suiteName: Constants.groupKey)?.synchronize()
+        
         self.dismiss(animated: true, completion: nil)
     }
     
