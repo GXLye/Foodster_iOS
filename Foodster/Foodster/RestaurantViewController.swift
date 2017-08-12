@@ -14,7 +14,7 @@ class RestaurantViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     
     var foodName = "Restaurant Info"
-    var selectedFood = Food(name: "", rating: 0.0, image: "", price: 0.0, restaurant: "")
+    var selectedFood = Food(name: "", rating: 0.0, image: "", price: 0.0, restaurant: "", tags: "")
     var selectedRestaurant = Restaurant(name: "", rating: 0.0, latitude: "", longitude: "", image: "")
     var foodArr = [Food]()
     var restaurantName = ""
@@ -111,7 +111,7 @@ extension RestaurantViewController: UITableViewDataSource {
         // Food Menu
         let item = tableView.dequeueReusableCell(withIdentifier: "Title", for: indexPath)
         item.textLabel?.text = foodArr[indexPath.row-4].name
-        item.detailTextLabel?.text = "Mamak, Vegetarian"
+        item.detailTextLabel?.text = foodArr[indexPath.row-4].tags
         item.imageView?.image = UIImage(named: "Blank")
         item.imageView?.downloadedFrom(link: foodArr[indexPath.row-4].image, contentMode: .scaleAspectFill)
         item.accessoryType = .disclosureIndicator

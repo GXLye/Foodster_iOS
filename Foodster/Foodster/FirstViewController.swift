@@ -8,6 +8,8 @@
 
 import UIKit
 import MapKit
+import Alamofire
+import RealmSwift
 
 class FirstViewController: UIViewController, UITableViewDelegate, MKMapViewDelegate {
 
@@ -15,12 +17,17 @@ class FirstViewController: UIViewController, UITableViewDelegate, MKMapViewDeleg
     @IBOutlet weak var tableView: UITableView!
     
     var annotations: [MKPointAnnotation] = []
-    var selectedFood = Food(name: "", rating: 0.0, image: "", price: 0.0, restaurant: "")
+    var selectedFood = Food(name: "", rating: 0.0, image: "", price: 0.0, restaurant: "", tags: "")
     var selectedImage = UIImageView()
     
     var restaurantFoodResult = [[Food]]()
     var restaurantResult = [Restaurant]()
     var foodResult = [Food]()
+    var restaurants: [String] = []
+    
+    var realm: Realm!
+    var notificationToken: NotificationToken!
+    //let user = SyncUser.current!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,14 +37,29 @@ class FirstViewController: UIViewController, UITableViewDelegate, MKMapViewDeleg
         tableView.dataSource = self
         
         mapView.delegate = self
+        
+        /*downloadTags(contentID: "", completion: { tag in
+            print(tag)
+        })*/
+        
+        //setupRealm()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         checkLocationAuthorizationStatus()
         
+        var vegetarian = false
+        
         if let diets = UserDefaults.init(suiteName: Constants.groupKey)?.value(forKey: Constants.dietsKey) as? [String] {
             print(diets)
+            
+            for diet in diets {
+                if diet == "Vegetarian" {
+                    vegetarian = true
+                    print(vegetarian)
+                }
+            }
         }
         
         if let cuisines = UserDefaults.init(suiteName: Constants.groupKey)?.value(forKey: Constants.cuisinesKey) as? [String] {
@@ -47,14 +69,30 @@ class FirstViewController: UIViewController, UITableViewDelegate, MKMapViewDeleg
         
 
         // Load Data
+        restaurants = []
         restaurantResult = Constants.sampleRest
         foodResult = Constants.sampleFood
         
-        for restaurant in restaurantResult {
+        var restaurantName = ""
+        
+        for food in foodResult {
+            if restaurantName != food.restaurant {
+                restaurants.append(food.restaurant) // Assuming all food arranged according to restaurant
+                restaurantName = food.restaurant
+            }
+        }
+        
+        for restaurant in restaurants {
             var foodArr: [Food] = []
             for food in foodResult {
-                if food.restaurant == restaurant.name {
-                    foodArr.append(food)
+                if food.restaurant == restaurant {
+                    if vegetarian {
+                        if food.tags.contains("Vegetarian") {
+                            foodArr.append(food)
+                        }
+                    } else {
+                        foodArr.append(food)
+                    }
                 }
             }
             
@@ -78,6 +116,52 @@ class FirstViewController: UIViewController, UITableViewDelegate, MKMapViewDeleg
         }
         mapView.showAnnotations(annotations, animated: true)
         
+        vegetarian = false
+    }
+    
+    func setupRealm() {
+        
+        SyncUser.logIn(with: .usernamePassword(username: Constants.username, password: Constants.password, register: false), server: URL(string: "http://\(Constants.syncURL):9080")!) { user, error in guard let user = user else {
+            fatalError(String(describing: error))
+            }
+            
+            DispatchQueue.main.async {
+                // Open Realm
+                let configuration = Realm.Configuration(
+                    syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: "realm://\(Constants.syncURL):9080/hok")!)
+                )
+                self.realm = try! Realm(configuration: configuration)
+                
+            }
+        }
+    }
+    
+    deinit {
+        notificationToken.stop()
+    }
+    
+    func downloadTags(contentID: String, completion: @escaping ([String]) -> Void) {
+        Alamofire.request(
+            "http://foodster.azurewebsites.net/api/Places"//,
+            //parameters: ["content": contentID],
+            //headers: ["Authorization": "Basic xxx"]
+            )
+            .responseJSON { response in
+                guard response.result.isSuccess else {
+                    print("Error while fetching tags")
+                    completion([String]())
+                    return
+                }
+                
+                guard let responseJSON = response.result.value as? [String: Any] else {
+                    print("Invalid tag information received from the service")
+                    completion([String]())
+                    return
+                }
+                
+                print(responseJSON)
+                completion([String]())
+        }
     }
     
     /// Returns the distance (in meters) from the
@@ -142,11 +226,16 @@ class FirstViewController: UIViewController, UITableViewDelegate, MKMapViewDeleg
             //navigationController?.transitioningDelegate = self.transitionManager
         }
     }
+    
+    @IBAction func search(_ sender: Any) {
+        tableView.reloadData()
+    }
 }
 
 extension FirstViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return restaurantResult.count
+//        return restaurantResult.count
+        return restaurants.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -154,7 +243,8 @@ extension FirstViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return restaurantResult[section].name
+//        return restaurantResult[section].name
+        return restaurants[section]
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -163,7 +253,7 @@ extension FirstViewController: UITableViewDataSource {
         let food = restaurantFoodResult[indexPath.section][indexPath.row]
         
         item.textLabel?.text = food.name
-        item.detailTextLabel?.text = food.name
+        item.detailTextLabel?.text = food.tags
         item.imageView?.image = UIImage(named: "Blank")
         item.imageView?.downloadedFrom(link: food.image, contentMode: .scaleAspectFill)
         

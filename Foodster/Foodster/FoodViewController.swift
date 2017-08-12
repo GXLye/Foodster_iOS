@@ -13,7 +13,7 @@ class FoodViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var foodImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     
-    var selectedFood = Food(name: "", rating: 0.0, image: "", price: 0.0, restaurant: "")
+    var selectedFood = Food(name: "", rating: 0.0, image: "", price: 0.0, restaurant: "", tags: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,7 +83,7 @@ extension FoodViewController: UITableViewDataSource {
         
         if indexPath.row == 2 { // Food Tags
             let item = tableView.dequeueReusableCell(withIdentifier: "Info", for: indexPath)
-            item.textLabel?.text = "Vegetarian, Italian, Pizza\n"
+            item.textLabel?.text = "\(selectedFood.tags)\n"
             item.selectionStyle = .none
             return item
         }
