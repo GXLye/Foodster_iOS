@@ -16,6 +16,7 @@ class RestaurantViewController: UIViewController, UITableViewDelegate {
     var foodName = "Restaurant Info"
     var selectedFood = Food(name: "", rating: 0.0, image: "", price: 0.0, restaurant: "")
     var selectedRestaurant = Restaurant(name: "", rating: 0.0, latitude: "", longitude: "", image: "")
+    var foodArr = [Food]()
     var restaurantName = ""
     
     override func viewDidLoad() {
@@ -34,6 +35,12 @@ class RestaurantViewController: UIViewController, UITableViewDelegate {
         for restaurant in Constants.sampleRest {
             if restaurant.name == restaurantName {
                 selectedRestaurant = restaurant
+            }
+        }
+        
+        for food in Constants.sampleFood {
+            if food.restaurant == restaurantName {
+                foodArr.append(food)
             }
         }
     }
@@ -58,7 +65,7 @@ class RestaurantViewController: UIViewController, UITableViewDelegate {
 
 extension RestaurantViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 4 + foodArr.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -103,10 +110,10 @@ extension RestaurantViewController: UITableViewDataSource {
         
         // Food Menu
         let item = tableView.dequeueReusableCell(withIdentifier: "Title", for: indexPath)
-        item.textLabel?.text = "Roti Canai"
+        item.textLabel?.text = foodArr[indexPath.row-4].name
         item.detailTextLabel?.text = "Mamak, Vegetarian"
         item.imageView?.image = UIImage(named: "Blank")
-        item.imageView?.downloadedFrom(link: "http://www.salamnoodles.com/assets/images/shop1.jpg", contentMode: .scaleAspectFill)
+        item.imageView?.downloadedFrom(link: foodArr[indexPath.row-4].image, contentMode: .scaleAspectFill)
         item.accessoryType = .disclosureIndicator
         return item
         
@@ -117,7 +124,7 @@ extension RestaurantViewController: UITableViewDataSource {
         
         if indexPath.row > 4 {
             if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FoodViewController") as? FoodViewController {
-                viewController.selectedFood = selectedFood
+                viewController.selectedFood = foodArr[indexPath.row-4]
                 if let navigator = navigationController {
                     navigator.pushViewController(viewController, animated: true)
                 }

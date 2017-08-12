@@ -53,6 +53,7 @@ class Food : NSObject {
     var price : Double = 0.0
     var image : String = ""
     var restaurant : String = ""
+    var tags : [String] = []
     
     init(name: String, rating: Double, image: String, price: Double, restaurant: String) {
         self.name = name
