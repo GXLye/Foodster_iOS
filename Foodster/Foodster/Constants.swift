@@ -23,6 +23,11 @@ public struct Constants {
     
     static let sampleRest = [Restaurant(name: "Salam Noodles", latitude: "2.926002", longitude: "101.65159", image: ""),
                              Restaurant(name: "myBurgerLab", latitude: "3.0158647", longitude: "101.5665644", image: "")]
+    static let sampleFood = [Food(name: "Burger", rating: 4, image: "https://image.ibb.co/dr8Sga/my_Burger_Lab.jpg", price: 7.50, restaurant: "myBurgerLab"),
+                             Food(name: "Beef Soup Noodles", rating: 4, image: "http://www.salamnoodles.com/assets/images/shop1.jpg", price: 8.00, restaurant: "Salam Noodles"),
+                             Food(name: "Mushroom Beef Noodles", rating: 4, image: "http://www.salamnoodles.com/assets/images/shop5.jpg", price: 5.00, restaurant: "Salam Noodles"),
+                             Food(name: "Braised Beef Noodles", rating: 3, image: "http://www.salamnoodles.com/assets/images/shop6.jpg", price: 6.00, restaurant: "Salam Noodles"),
+                             Food(name: "Mutton Curry Noodles", rating: 2, image: "http://www.salamnoodles.com/assets/images/shop7.jpg", price: 7.00, restaurant: "Salam Noodles")]
     
 }
 
@@ -30,6 +35,7 @@ class Restaurant : NSObject {
     var name : String = ""
     var latitude : String = ""
     var longitude : String = ""
+    var rating : Double = 0.0
     var image : String = ""
     
     init(name: String, latitude: String, longitude: String, image: String) {
@@ -37,6 +43,22 @@ class Restaurant : NSObject {
         self.longitude = longitude
         self.latitude = latitude
         self.image = image
+    }
+}
+
+class Food : NSObject {
+    var name : String = ""
+    var rating : Double = 0.0
+    var price : Double = 0.0
+    var image : String = ""
+    var restaurant : String = ""
+    
+    init(name: String, rating: Double, image: String, price: Double, restaurant: String) {
+        self.name = name
+        self.rating = rating
+        self.image = image
+        self.price = price
+        self.restaurant = restaurant
     }
 }
 
@@ -94,5 +116,9 @@ extension Double {
             return String(format: "%.1fkm", self/1000)
         }
         return String(format: "%.0fm", self)
+    }
+    
+    var toSteps: String {
+        return String(format: "%.0f steps", self/0.7)
     }
 }

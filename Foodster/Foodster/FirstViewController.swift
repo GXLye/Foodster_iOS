@@ -15,8 +15,12 @@ class FirstViewController: UIViewController, UITableViewDelegate, MKMapViewDeleg
     @IBOutlet weak var tableView: UITableView!
     
     var annotations: [MKPointAnnotation] = []
-    var foodName = ""
+    var selectedFood = Food(name: "", rating: 0.0, image: "", price: 0.0, restaurant: "")
     var selectedImage = UIImageView()
+    
+    var restaurantFoodResult = [[Food]]()
+    var restaurantResult = [Restaurant]()
+    var foodResult = [Food]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +58,20 @@ class FirstViewController: UIViewController, UITableViewDelegate, MKMapViewDeleg
             annotations.append(annotation)
         }
         mapView.showAnnotations(annotations, animated: true)
+        
+        restaurantResult = Constants.sampleRest
+        foodResult = Constants.sampleFood
+        
+        for restaurant in restaurantResult {
+            var foodArr: [Food] = []
+            for food in foodResult {
+                if food.restaurant == restaurant.name {
+                    foodArr.append(food)
+                }
+            }
+            
+            restaurantFoodResult.append(foodArr)
+        }
         
     }
     
@@ -111,47 +129,51 @@ class FirstViewController: UIViewController, UITableViewDelegate, MKMapViewDeleg
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showFood" {
+        /*if segue.identifier == "showFood" {
             let foodView = segue.destination as! FoodViewController
             
 //            foodView.foodImage.image = selectedImage.image
-            foodView.foodName = foodName
+//            foodView.foodName = foodName
             
 //            navigationController?.transitioningDelegate = self.transitionManager
-        }
+        }*/
     }
 }
 
 extension FirstViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return restaurantResult.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return restaurantFoodResult[section].count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return Constants.sampleRest[section].name
+        return restaurantResult[section].name
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        item.textLabel?.text = "Roti Canai"
-        item.detailTextLabel?.text = "Mamak, Vegetarian"
+        let food = restaurantFoodResult[indexPath.section][indexPath.row]
+        
+        item.textLabel?.text = food.name
+        item.detailTextLabel?.text = food.name
         item.imageView?.image = UIImage(named: "Blank")
-        item.imageView?.downloadedFrom(link: "http://www.salamnoodles.com/assets/images/shop1.jpg", contentMode: .scaleAspectFill)
+        item.imageView?.downloadedFrom(link: food.image, contentMode: .scaleAspectFill)
         
         return item
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        tableView.deselectRow(at: indexPath, animated: false)
         
-        foodName = (item.textLabel?.text)!
-//        selectedImage.image = (item.imageView?.image)!
+        
+        selectedFood = self.restaurantFoodResult[indexPath.section][indexPath.row]
         performSegue(withIdentifier: "showFood", sender: nil)
+        
+        
     }
 }
 
