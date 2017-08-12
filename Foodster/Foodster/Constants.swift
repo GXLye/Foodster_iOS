@@ -11,7 +11,7 @@ import UIKit
 
 public struct Constants {
     static let tasteProfile = ["Diets","Preferred Cuisines"]
-    static let diets = ["Gluten-free","Halal","Pork-free","Vegan","Vegetarian"]
+    static let diets = ["Gluten-free","Halal-certified","Pork-free","Vegan","Vegetarian"]
     static let cuisines = ["Chinese","Malay","Indian","Mamak","Western","Korean","Japanese"]
     
     // User Defaults

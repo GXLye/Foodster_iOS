@@ -15,6 +15,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, MKMapViewDeleg
     @IBOutlet weak var tableView: UITableView!
     
     var annotations: [MKPointAnnotation] = []
+    var foodName = ""
+    var selectedImage = UIImageView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,6 +109,17 @@ class FirstViewController: UIViewController, UITableViewDelegate, MKMapViewDeleg
             locationManager.requestWhenInUseAuthorization()
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showFood" {
+            let foodView = segue.destination as! FoodViewController
+            
+//            foodView.foodImage.image = selectedImage.image
+            foodView.foodName = foodName
+            
+//            navigationController?.transitioningDelegate = self.transitionManager
+        }
+    }
 }
 
 extension FirstViewController: UITableViewDataSource {
@@ -115,7 +128,7 @@ extension FirstViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 3
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -127,9 +140,18 @@ extension FirstViewController: UITableViewDataSource {
         
         item.textLabel?.text = "Roti Canai"
         item.detailTextLabel?.text = "Mamak, Vegetarian"
-        item.imageView?.downloadedFrom(link: "http://media.themalaymailonline.com/uploads/articles/Crave/2017/2017-01/LanRoti01.jpg")
+        item.imageView?.image = UIImage(named: "Rectangle")
+        item.imageView?.downloadedFrom(link: "http://www.salamnoodles.com/assets/images/shop1.jpg", contentMode: .scaleAspectFill)
         
         return item
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        
+        foodName = (item.textLabel?.text)!
+//        selectedImage.image = (item.imageView?.image)!
+        performSegue(withIdentifier: "showFood", sender: nil)
     }
 }
 

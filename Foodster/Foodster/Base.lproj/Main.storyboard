@@ -31,7 +31,7 @@
                                 <rect key="frame" x="0.0" y="274" width="375" height="344"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="Cell" textLabel="zwv-2K-edP" detailTextLabel="cf1-Jd-5et" rowHeight="70" style="IBUITableViewCellStyleSubtitle" id="f4i-Cl-WmH">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="Cell" textLabel="zwv-2K-edP" detailTextLabel="cf1-Jd-5et" imageView="d9X-O5-BXh" rowHeight="70" style="IBUITableViewCellStyleSubtitle" id="f4i-Cl-WmH">
                                         <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f4i-Cl-WmH" id="3jv-6C-sak">
@@ -39,19 +39,23 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Roti Canai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zwv-2K-edP">
-                                                    <rect key="frame" x="15" y="18" width="77.5" height="20.5"/>
+                                                    <rect key="frame" x="100" y="18" width="77.5" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Mamak, Vegetarian" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cf1-Jd-5et">
-                                                    <rect key="frame" x="15" y="38.5" width="108.5" height="14.5"/>
+                                                    <rect key="frame" x="100" y="38.5" width="108.5" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Rectangle" id="d9X-O5-BXh">
+                                                    <rect key="frame" x="15" y="0.0" width="70" height="69.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -80,11 +84,127 @@
                     <connections>
                         <outlet property="mapView" destination="Yji-Oi-6M5" id="1uc-W8-Qst"/>
                         <outlet property="tableView" destination="Isr-Zv-4gi" id="e5T-Ue-Y6Z"/>
+                        <segue destination="xB2-DT-xsX" kind="show" identifier="showFood" id="JnD-bi-Ot3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1724" y="-323.38830584707648"/>
+        </scene>
+        <!--Food View Controller-->
+        <scene sceneID="Agz-qU-1vT">
+            <objects>
+                <viewController storyboardIdentifier="FoodViewController" id="xB2-DT-xsX" customClass="FoodViewController" customModule="Foodster" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZvD-ov-gJw"/>
+                        <viewControllerLayoutGuide type="bottom" id="DUZ-h4-mbr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3CW-mq-nAt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BP0-Hc-wQk">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="190"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="190" id="NI5-cL-PyK"/>
+                                </constraints>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iqc-BI-KGp">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="kyK-jc-tzh">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="163"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Title" textLabel="mXy-0H-BMJ" detailTextLabel="wmz-cu-xpt" style="IBUITableViewCellStyleSubtitle" id="nBa-c6-uKw">
+                                        <rect key="frame" x="0.0" y="191" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nBa-c6-uKw" id="pcU-TD-Aga">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Food name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mXy-0H-BMJ">
+                                                    <rect key="frame" x="15" y="5" width="85.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wmz-cu-xpt">
+                                                    <rect key="frame" x="15" y="25.5" width="36.5" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Info" textLabel="Mec-fE-pht" style="IBUITableViewCellStyleDefault" id="huV-s9-VMC">
+                                        <rect key="frame" x="0.0" y="235" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="huV-s9-VMC" id="8mX-J8-Z8x">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Test Test Test Test Test " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mec-fE-pht">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Restaurant" textLabel="wcC-Kx-XfE" detailTextLabel="jks-cw-Nub" style="IBUITableViewCellStyleValue1" id="G6k-gh-n8Y">
+                                        <rect key="frame" x="0.0" y="279" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G6k-gh-n8Y" id="Yjw-CC-zPv">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Food name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wcC-Kx-XfE">
+                                                    <rect key="frame" x="15" y="12" width="85.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Rating" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jks-cw-Nub">
+                                                    <rect key="frame" x="291" y="12" width="49" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="BP0-Hc-wQk" secondAttribute="trailing" id="BAg-m2-vqM"/>
+                            <constraint firstItem="iqc-BI-KGp" firstAttribute="leading" secondItem="3CW-mq-nAt" secondAttribute="leading" id="Mn2-va-jNT"/>
+                            <constraint firstItem="BP0-Hc-wQk" firstAttribute="top" secondItem="3CW-mq-nAt" secondAttribute="top" id="OIr-hn-gF5"/>
+                            <constraint firstItem="iqc-BI-KGp" firstAttribute="top" secondItem="3CW-mq-nAt" secondAttribute="top" id="XnF-fi-sXl"/>
+                            <constraint firstItem="BP0-Hc-wQk" firstAttribute="leading" secondItem="3CW-mq-nAt" secondAttribute="leading" id="jPu-Zv-UMZ"/>
+                            <constraint firstAttribute="trailing" secondItem="iqc-BI-KGp" secondAttribute="trailing" id="ogz-L9-laW"/>
+                            <constraint firstAttribute="bottom" secondItem="iqc-BI-KGp" secondAttribute="bottom" constant="49" id="ytp-hr-VKN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="foodImage" destination="BP0-Hc-wQk" id="ZnO-Ks-rAf"/>
+                        <outlet property="tableView" destination="iqc-BI-KGp" id="ebp-st-7OT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rTO-wQ-bB5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2661.5999999999999" y="-323.38830584707648"/>
         </scene>
         <!--Create Taste Profile-->
         <scene sceneID="RjZ-DU-OyS">
@@ -234,6 +354,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Rectangle" width="100" height="100"/>
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
