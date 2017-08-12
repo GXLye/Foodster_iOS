@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		628B6549F49BE49343626C59 /* Pods_Foodster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE1064D834BF283C01E99581 /* Pods_Foodster.framework */; };
+		655A8D8D4622285B7C578556 /* Pods_FoodsterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79B42544D1657BCB32E13777 /* Pods_FoodsterUITests.framework */; };
 		84D9863B1F3DBE5C0069B1F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9863A1F3DBE5C0069B1F4 /* AppDelegate.swift */; };
 		84D9863D1F3DBE5C0069B1F4 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9863C1F3DBE5C0069B1F4 /* FirstViewController.swift */; };
 		84D9863F1F3DBE5C0069B1F4 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9863E1F3DBE5C0069B1F4 /* SecondViewController.swift */; };
@@ -21,6 +23,7 @@
 		84D986711F3DFEAE0069B1F4 /* CreateTasteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D986701F3DFEAE0069B1F4 /* CreateTasteTableViewController.swift */; };
 		84D986731F3E492D0069B1F4 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D986721F3E492D0069B1F4 /* FoodViewController.swift */; };
 		84D986751F3E9CDE0069B1F4 /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D986741F3E9CDE0069B1F4 /* RestaurantViewController.swift */; };
+		ED30C659435219DF56985521 /* Pods_FoodsterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFFC5D23F7FB1BD568C5B200 /* Pods_FoodsterTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +44,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		10E793F4B59375CD65CF22F9 /* Pods-Foodster.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foodster.release.xcconfig"; path = "Pods/Target Support Files/Pods-Foodster/Pods-Foodster.release.xcconfig"; sourceTree = "<group>"; };
+		2F34C4210D79ACC3C7E1791D /* Pods-FoodsterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodsterUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FoodsterUITests/Pods-FoodsterUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		446F097DF1661F4FAE5D1EE9 /* Pods-FoodsterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodsterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FoodsterTests/Pods-FoodsterTests.release.xcconfig"; sourceTree = "<group>"; };
+		4BA36FA6D21D06898AB8CB89 /* Pods-FoodsterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodsterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FoodsterTests/Pods-FoodsterTests.debug.xcconfig"; sourceTree = "<group>"; };
+		66599CCBC90E98476BF4DB63 /* Pods-Foodster.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foodster.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Foodster/Pods-Foodster.debug.xcconfig"; sourceTree = "<group>"; };
+		6DE72A5DD87ED78C9EC96942 /* Pods-FoodsterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodsterUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FoodsterUITests/Pods-FoodsterUITests.release.xcconfig"; sourceTree = "<group>"; };
+		79B42544D1657BCB32E13777 /* Pods_FoodsterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodsterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D986371F3DBE5C0069B1F4 /* Foodster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foodster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D9863A1F3DBE5C0069B1F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84D9863C1F3DBE5C0069B1F4 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +71,8 @@
 		84D986701F3DFEAE0069B1F4 /* CreateTasteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTasteTableViewController.swift; sourceTree = "<group>"; };
 		84D986721F3E492D0069B1F4 /* FoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
 		84D986741F3E9CDE0069B1F4 /* RestaurantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
+		BE1064D834BF283C01E99581 /* Pods_Foodster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Foodster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFFC5D23F7FB1BD568C5B200 /* Pods_FoodsterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodsterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				628B6549F49BE49343626C59 /* Pods_Foodster.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED30C659435219DF56985521 /* Pods_FoodsterTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,12 +96,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				655A8D8D4622285B7C578556 /* Pods_FoodsterUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F5121DC91458FDB72797CE3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				66599CCBC90E98476BF4DB63 /* Pods-Foodster.debug.xcconfig */,
+				10E793F4B59375CD65CF22F9 /* Pods-Foodster.release.xcconfig */,
+				4BA36FA6D21D06898AB8CB89 /* Pods-FoodsterTests.debug.xcconfig */,
+				446F097DF1661F4FAE5D1EE9 /* Pods-FoodsterTests.release.xcconfig */,
+				2F34C4210D79ACC3C7E1791D /* Pods-FoodsterUITests.debug.xcconfig */,
+				6DE72A5DD87ED78C9EC96942 /* Pods-FoodsterUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		84D9862E1F3DBE5C0069B1F4 = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +123,8 @@
 				84D986501F3DBE5C0069B1F4 /* FoodsterTests */,
 				84D9865B1F3DBE5C0069B1F4 /* FoodsterUITests */,
 				84D986381F3DBE5C0069B1F4 /* Products */,
+				4F5121DC91458FDB72797CE3 /* Pods */,
+				A37CFE1A6E8D789E606F0D13 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -146,6 +176,16 @@
 			path = FoodsterUITests;
 			sourceTree = "<group>";
 		};
+		A37CFE1A6E8D789E606F0D13 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BE1064D834BF283C01E99581 /* Pods_Foodster.framework */,
+				DFFC5D23F7FB1BD568C5B200 /* Pods_FoodsterTests.framework */,
+				79B42544D1657BCB32E13777 /* Pods_FoodsterUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -153,9 +193,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84D986611F3DBE5C0069B1F4 /* Build configuration list for PBXNativeTarget "Foodster" */;
 			buildPhases = (
+				895E8E7D8ED87D2BBEE5CED5 /* [CP] Check Pods Manifest.lock */,
 				84D986331F3DBE5C0069B1F4 /* Sources */,
 				84D986341F3DBE5C0069B1F4 /* Frameworks */,
 				84D986351F3DBE5C0069B1F4 /* Resources */,
+				BB87310EDB10F3FFDF76E03D /* [CP] Embed Pods Frameworks */,
+				1895A0666B8B721D57911730 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,9 +213,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84D986641F3DBE5C0069B1F4 /* Build configuration list for PBXNativeTarget "FoodsterTests" */;
 			buildPhases = (
+				68C2B685ACE4170F7F3EE185 /* [CP] Check Pods Manifest.lock */,
 				84D986491F3DBE5C0069B1F4 /* Sources */,
 				84D9864A1F3DBE5C0069B1F4 /* Frameworks */,
 				84D9864B1F3DBE5C0069B1F4 /* Resources */,
+				0F1FD098764EE6811F180FF1 /* [CP] Embed Pods Frameworks */,
+				BA9ADACA9DD96E7952D45098 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -188,9 +234,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84D986671F3DBE5C0069B1F4 /* Build configuration list for PBXNativeTarget "FoodsterUITests" */;
 			buildPhases = (
+				5671FEBF980A5D2173B1F5A2 /* [CP] Check Pods Manifest.lock */,
 				84D986541F3DBE5C0069B1F4 /* Sources */,
 				84D986551F3DBE5C0069B1F4 /* Frameworks */,
 				84D986561F3DBE5C0069B1F4 /* Resources */,
+				2EC90B8A07283400A63874BC /* [CP] Embed Pods Frameworks */,
+				043B944E6388766F7278B025 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -277,6 +326,144 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		043B944E6388766F7278B025 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FoodsterUITests/Pods-FoodsterUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0F1FD098764EE6811F180FF1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FoodsterTests/Pods-FoodsterTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1895A0666B8B721D57911730 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Foodster/Pods-Foodster-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2EC90B8A07283400A63874BC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FoodsterUITests/Pods-FoodsterUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5671FEBF980A5D2173B1F5A2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		68C2B685ACE4170F7F3EE185 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		895E8E7D8ED87D2BBEE5CED5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BA9ADACA9DD96E7952D45098 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FoodsterTests/Pods-FoodsterTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB87310EDB10F3FFDF76E03D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Foodster/Pods-Foodster-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		84D986331F3DBE5C0069B1F4 /* Sources */ = {
@@ -443,6 +630,7 @@
 		};
 		84D986621F3DBE5C0069B1F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 66599CCBC90E98476BF4DB63 /* Pods-Foodster.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = HZA79NQ8N6;
@@ -456,6 +644,7 @@
 		};
 		84D986631F3DBE5C0069B1F4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10E793F4B59375CD65CF22F9 /* Pods-Foodster.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = HZA79NQ8N6;
@@ -469,6 +658,7 @@
 		};
 		84D986651F3DBE5C0069B1F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4BA36FA6D21D06898AB8CB89 /* Pods-FoodsterTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -484,6 +674,7 @@
 		};
 		84D986661F3DBE5C0069B1F4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 446F097DF1661F4FAE5D1EE9 /* Pods-FoodsterTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -499,6 +690,7 @@
 		};
 		84D986681F3DBE5C0069B1F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F34C4210D79ACC3C7E1791D /* Pods-FoodsterUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = HZA79NQ8N6;
@@ -513,6 +705,7 @@
 		};
 		84D986691F3DBE5C0069B1F4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6DE72A5DD87ED78C9EC96942 /* Pods-FoodsterUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = HZA79NQ8N6;
