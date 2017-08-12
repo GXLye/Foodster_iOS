@@ -44,7 +44,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, MKMapViewDeleg
             print(cuisines)
         }
         
-        mapView.removeAnnotations(annotations)
         
 
         // Load Data
@@ -63,6 +62,9 @@ class FirstViewController: UIViewController, UITableViewDelegate, MKMapViewDeleg
         }
         
         tableView.reloadData()
+        
+        mapView.removeAnnotations(annotations)
+        annotations = []
         
         for restaurant in restaurantResult {
             let annotation = MKPointAnnotation()
