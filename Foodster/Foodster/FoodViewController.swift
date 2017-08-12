@@ -70,19 +70,28 @@ extension FoodViewController: UITableViewDataSource {
             return item
         }
         
-        if indexPath.row == 2 { // Restaurant
+        if indexPath.row == 2 { // Food Tags
+            let item = tableView.dequeueReusableCell(withIdentifier: "Info", for: indexPath)
+            item.textLabel?.text = "Vegetarian, Italian, Pizza"
+            item.selectionStyle = .none
+            return item
+        }
+        
+        if indexPath.row == 3 { // Restaurant
             let item = tableView.dequeueReusableCell(withIdentifier: "Restaurant", for: indexPath)
             item.textLabel?.text = "Restaurant"
             item.detailTextLabel?.text = "Salam Noodles"
             item.accessoryType = .disclosureIndicator
+            item.selectionStyle = .none
             return item
         }
         
-        if indexPath.row == 3 { // Other restaurants
+        if indexPath.row == 4 { // Other restaurants
             let item = tableView.dequeueReusableCell(withIdentifier: "Restaurant", for: indexPath)
             item.textLabel?.text = "Other Restaurants"
             item.detailTextLabel?.text = "3"
             item.accessoryType = .disclosureIndicator
+            item.selectionStyle = .none
             return item
         }
         

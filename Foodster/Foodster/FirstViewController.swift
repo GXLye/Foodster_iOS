@@ -140,7 +140,7 @@ extension FirstViewController: UITableViewDataSource {
         
         item.textLabel?.text = "Roti Canai"
         item.detailTextLabel?.text = "Mamak, Vegetarian"
-        item.imageView?.image = UIImage(named: "Rectangle")
+        item.imageView?.image = UIImage(named: "Blank")
         item.imageView?.downloadedFrom(link: "http://www.salamnoodles.com/assets/images/shop1.jpg", contentMode: .scaleAspectFill)
         
         return item

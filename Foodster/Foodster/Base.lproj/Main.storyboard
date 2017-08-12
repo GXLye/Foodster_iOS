@@ -52,7 +52,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Rectangle" id="d9X-O5-BXh">
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Blank" id="d9X-O5-BXh">
                                                     <rect key="frame" x="15" y="0.0" width="70" height="69.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
@@ -112,10 +112,23 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iqc-BI-KGp">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <view key="tableHeaderView" contentMode="scaleToFill" id="kyK-jc-tzh">
+                                <view key="tableHeaderView" clipsSubviews="YES" contentMode="scaleToFill" id="kyK-jc-tzh">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="163"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="hUQ-f1-iza">
+                                            <rect key="frame" x="0.0" y="151" width="375" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="25" id="COx-jq-bml"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="hUQ-f1-iza" firstAttribute="leading" secondItem="kyK-jc-tzh" secondAttribute="leading" id="FK7-FG-qHS"/>
+                                        <constraint firstAttribute="trailing" secondItem="hUQ-f1-iza" secondAttribute="trailing" id="OBg-Ml-6dc"/>
+                                        <constraint firstAttribute="bottom" secondItem="hUQ-f1-iza" secondAttribute="bottom" constant="-13" id="Qlu-kL-4oc"/>
+                                    </constraints>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Title" textLabel="mXy-0H-BMJ" detailTextLabel="wmz-cu-xpt" style="IBUITableViewCellStyleSubtitle" id="nBa-c6-uKw">
@@ -354,7 +367,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Rectangle" width="100" height="100"/>
+        <image name="Blank" width="100" height="100"/>
+        <image name="Rectangle" width="30" height="30"/>
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
