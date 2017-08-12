@@ -19,7 +19,7 @@ class FoodViewController: UIViewController, UITableViewDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        foodImage.downloadedFrom(link: "http://www.salamnoodles.com/assets/images/shop1.jpg", contentMode: .scaleAspectFill)
+        foodImage.downloadedFrom(link: selectedFood.image, contentMode: .scaleAspectFill)
         self.navigationItem.title = "Food Info"
         
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -32,6 +32,16 @@ class FoodViewController: UIViewController, UITableViewDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showFoodRestaurant" {
+            let foodView = segue.destination as! RestaurantViewController
+            
+            foodView.restaurantName = selectedFood.restaurant
+            
+            //navigationController?.transitioningDelegate = self.transitionManager
+        }
     }
     
 
@@ -58,7 +68,7 @@ extension FoodViewController: UITableViewDataSource {
             let item = tableView.dequeueReusableCell(withIdentifier: "Restaurant", for: indexPath)
             
             item.textLabel?.text = selectedFood.name
-            item.detailTextLabel?.text = "RM\(selectedFood.price)"
+            item.detailTextLabel?.text = "RM\(selectedFood.price.toPrice)"
             item.accessoryType = .none
             item.selectionStyle = .none
             return item
@@ -66,7 +76,7 @@ extension FoodViewController: UITableViewDataSource {
         
         if indexPath.row == 1 { // Food Details
             let item = tableView.dequeueReusableCell(withIdentifier: "Info", for: indexPath)
-            item.textLabel?.text = "Average Ratings: ★★★★☆ (2 reviews)\n\nMushrooms, onions, black olives, red bells, garlic, roasted zucchini. The most delicious mushrooms, onions, black olives, red bells, garlic, roasted zucchini. The most delicious meal. \n"
+            item.textLabel?.text = "Average Ratings: \(selectedFood.rating.toRatings) (2 reviews)\n\nMushrooms, onions, black olives, red bells, garlic, roasted zucchini. The most delicious mushrooms, onions, black olives, red bells, garlic, roasted zucchini. The most delicious meal. \n"
             item.selectionStyle = .none
             return item
         }
@@ -103,7 +113,7 @@ extension FoodViewController: UITableViewDataSource {
         
         // Comments
         let item = tableView.dequeueReusableCell(withIdentifier: "Info", for: indexPath)
-        item.textLabel?.text = "Clavier ★★★★☆\nMushrooms, onions, black olives, red bells, garlic, roasted zucchini. The most delicious mushrooms, onions, black olives, red bells, garlic, roasted zucchini.\n"
+        item.textLabel?.text = "Clavier \(selectedFood.rating.toRatings)\nMushrooms, onions, black olives, red bells, garlic, roasted zucchini. The most delicious mushrooms, onions, black olives, red bells, garlic, roasted zucchini.\n"
         item.selectionStyle = .none
         return item
         

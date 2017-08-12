@@ -21,8 +21,8 @@ public struct Constants {
     static let cuisinesKey = "userCuisines"
     
     
-    static let sampleRest = [Restaurant(name: "Salam Noodles", latitude: "2.926002", longitude: "101.65159", image: ""),
-                             Restaurant(name: "myBurgerLab", latitude: "3.0158647", longitude: "101.5665644", image: "")]
+    static let sampleRest = [Restaurant(name: "Salam Noodles", rating: 3.5, latitude: "2.926002", longitude: "101.65159", image: ""),
+                             Restaurant(name: "myBurgerLab", rating: 4.7, latitude: "3.0158647", longitude: "101.5665644", image: "")]
     static let sampleFood = [Food(name: "Burger", rating: 4, image: "https://image.ibb.co/dr8Sga/my_Burger_Lab.jpg", price: 7.50, restaurant: "myBurgerLab"),
                              Food(name: "Beef Soup Noodles", rating: 4, image: "http://www.salamnoodles.com/assets/images/shop1.jpg", price: 8.00, restaurant: "Salam Noodles"),
                              Food(name: "Mushroom Beef Noodles", rating: 4, image: "http://www.salamnoodles.com/assets/images/shop5.jpg", price: 5.00, restaurant: "Salam Noodles"),
@@ -38,8 +38,9 @@ class Restaurant : NSObject {
     var rating : Double = 0.0
     var image : String = ""
     
-    init(name: String, latitude: String, longitude: String, image: String) {
+    init(name: String, rating: Double, latitude: String, longitude: String, image: String) {
         self.name = name
+        self.rating = rating
         self.longitude = longitude
         self.latitude = latitude
         self.image = image
@@ -120,5 +121,41 @@ extension Double {
     
     var toSteps: String {
         return String(format: "%.0f steps", self/0.7)
+    }
+    
+    var toPrice: String {
+        return String(format: "%.2f", self)
+    }
+    
+    var toRatings: String {
+        if self <= 0.0 && self <= 0.4 {
+            return "☆☆☆☆☆"
+        }
+        
+        if self > 0.4 && self <= 1.0 {
+            return "★☆☆☆☆"
+        }
+        
+        if self > 0.4 && self <= 1.0 {
+            return "★☆☆☆☆"
+        }
+        
+        if self > 1.0 && self <= 2.0 {
+            return "★★☆☆☆"
+        }
+        
+        if self > 2.0 && self <= 3.0 {
+            return "★★★☆☆"
+        }
+        
+        if self > 3.0 && self <= 4.0 {
+            return "★★★★☆"
+        }
+        
+        if self > 4.0 && self <= 5.0 {
+            return "★★★★★"
+        }
+        
+        return "☆☆☆☆☆"
     }
 }

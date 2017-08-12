@@ -46,19 +46,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, MKMapViewDeleg
         
         mapView.removeAnnotations(annotations)
         
-        
-        for restaurant in Constants.sampleRest {
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(restaurant.latitude)!, longitude: CLLocationDegrees(restaurant.longitude)!)
-            annotation.title = restaurant.name
-            if let distance = userDistance(from: annotation) {
-                annotation.subtitle = "\(distance.noDecimal)"
-            }
-//            mapView.addAnnotation(annotation)
-            annotations.append(annotation)
-        }
-        mapView.showAnnotations(annotations, animated: true)
-        
+
+        // Load Data
         restaurantResult = Constants.sampleRest
         foodResult = Constants.sampleFood
         
@@ -72,6 +61,20 @@ class FirstViewController: UIViewController, UITableViewDelegate, MKMapViewDeleg
             
             restaurantFoodResult.append(foodArr)
         }
+        
+        tableView.reloadData()
+        
+        for restaurant in restaurantResult {
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(restaurant.latitude)!, longitude: CLLocationDegrees(restaurant.longitude)!)
+            annotation.title = restaurant.name
+            if let distance = userDistance(from: annotation) {
+                annotation.subtitle = "\(distance.noDecimal)"
+            }
+            //            mapView.addAnnotation(annotation)
+            annotations.append(annotation)
+        }
+        mapView.showAnnotations(annotations, animated: true)
         
     }
     
@@ -129,14 +132,13 @@ class FirstViewController: UIViewController, UITableViewDelegate, MKMapViewDeleg
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        /*if segue.identifier == "showFood" {
+        if segue.identifier == "showFood" {
             let foodView = segue.destination as! FoodViewController
             
-//            foodView.foodImage.image = selectedImage.image
-//            foodView.foodName = foodName
+            foodView.selectedFood = selectedFood
             
-//            navigationController?.transitioningDelegate = self.transitionManager
-        }*/
+            //navigationController?.transitioningDelegate = self.transitionManager
+        }
     }
 }
 

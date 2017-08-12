@@ -15,7 +15,8 @@ class RestaurantViewController: UIViewController, UITableViewDelegate {
     
     var foodName = "Restaurant Info"
     var selectedFood = Food(name: "", rating: 0.0, image: "", price: 0.0, restaurant: "")
-    var selectedRestaurant = Restaurant(name: "", latitude: "", longitude: "", image: "")
+    var selectedRestaurant = Restaurant(name: "", rating: 0.0, latitude: "", longitude: "", image: "")
+    var restaurantName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,12 @@ class RestaurantViewController: UIViewController, UITableViewDelegate {
         
         tableView.dataSource = self
         tableView.delegate = self
+        
+        for restaurant in Constants.sampleRest {
+            if restaurant.name == restaurantName {
+                selectedRestaurant = restaurant
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,8 +65,8 @@ extension RestaurantViewController: UITableViewDataSource {
         
         if indexPath.row == 0 { // Restaurant Name & Ratings
             let item = tableView.dequeueReusableCell(withIdentifier: "Title", for: indexPath)
-            item.textLabel?.text = "Salam Noodles"
-            item.detailTextLabel?.text = "★★★☆☆ (3 reviews)"
+            item.textLabel?.text = selectedRestaurant.name
+            item.detailTextLabel?.text = "\(selectedRestaurant.rating.toRatings) (3 reviews)"
             item.accessoryType = .none
             item.selectionStyle = .none
             return item
@@ -82,7 +89,7 @@ extension RestaurantViewController: UITableViewDataSource {
         if indexPath.row == 3 { // Reviews
             let item = tableView.dequeueReusableCell(withIdentifier: "Restaurant", for: indexPath)
             item.textLabel?.text = "Reviews"
-            item.detailTextLabel?.text = "★★★☆☆ (3)"
+            item.detailTextLabel?.text = "\(selectedRestaurant.rating.toRatings) (3)"
             item.accessoryType = .disclosureIndicator
             return item
         }
