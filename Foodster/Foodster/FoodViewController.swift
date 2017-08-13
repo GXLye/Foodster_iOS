@@ -14,6 +14,7 @@ class FoodViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     
     var selectedFood = Food(name: "", rating: 0.0, image: "", price: 0.0, restaurant: "", tags: "")
+    var savedInt = 3
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,10 @@ class FoodViewController: UIViewController, UITableViewDelegate {
         
         tableView.dataSource = self
         tableView.delegate = self
+        
+        if let cuisines = UserDefaults.init(suiteName: Constants.groupKey)?.value(forKey: Constants.savedKey) as? Int {
+            savedInt = cuisines
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -98,8 +103,8 @@ extension FoodViewController: UITableViewDataSource {
         
         if indexPath.row == 4 { // Other restaurants
             let item = tableView.dequeueReusableCell(withIdentifier: "Restaurant", for: indexPath)
-            item.textLabel?.text = "Other Restaurants"
-            item.detailTextLabel?.text = "3"
+            item.textLabel?.text = "Save for Later"
+            item.detailTextLabel?.text = "\(savedInt) saved"
             item.accessoryType = .disclosureIndicator
             return item
         }
@@ -124,6 +129,14 @@ extension FoodViewController: UITableViewDataSource {
         
         if indexPath.row == 3 {
             performSegue(withIdentifier: "showFoodRestaurant", sender: nil)
+        }
+        
+        if indexPath.row == 4 {
+            savedInt += 1
+            tableView.reloadData()
+            
+            UserDefaults.init(suiteName: Constants.groupKey)?.set(savedInt, forKey: Constants.savedKey)
+            UserDefaults.init(suiteName: Constants.groupKey)?.synchronize()
         }
     }
 }

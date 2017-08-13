@@ -19,6 +19,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, MKMapViewDeleg
     var annotations: [MKPointAnnotation] = []
     var selectedFood = Food(name: "", rating: 0.0, image: "", price: 0.0, restaurant: "", tags: "")
     var selectedImage = UIImageView()
+    var vegetarian = false
     
     var restaurantFoodResult = [[Food]]()
     var restaurantResult = [Restaurant]()
@@ -49,7 +50,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, MKMapViewDeleg
         super.viewDidAppear(animated)
         checkLocationAuthorizationStatus()
         
-        var vegetarian = false
+        vegetarian = false
         
         if let diets = UserDefaults.init(suiteName: Constants.groupKey)?.value(forKey: Constants.dietsKey) as? [String] {
             print(diets)
@@ -86,13 +87,13 @@ class FirstViewController: UIViewController, UITableViewDelegate, MKMapViewDeleg
             var foodArr: [Food] = []
             for food in foodResult {
                 if food.restaurant == restaurant {
-                    if vegetarian {
+                    /*if vegetarian {
                         if food.tags.contains("Vegetarian") {
                             foodArr.append(food)
                         }
-                    } else {
+                    } else {*/
                         foodArr.append(food)
-                    }
+                    //}
                 }
             }
             
@@ -104,6 +105,9 @@ class FirstViewController: UIViewController, UITableViewDelegate, MKMapViewDeleg
         mapView.removeAnnotations(annotations)
         annotations = []
         
+        if vegetarian {
+            restaurantResult = Constants.sampleVegRest
+        }
         for restaurant in restaurantResult {
             let annotation = MKPointAnnotation()
             annotation.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(restaurant.latitude)!, longitude: CLLocationDegrees(restaurant.longitude)!)
@@ -116,7 +120,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, MKMapViewDeleg
         }
         mapView.showAnnotations(annotations, animated: true)
         
-        vegetarian = false
     }
     
     func setupRealm() {
@@ -195,9 +198,17 @@ class FirstViewController: UIViewController, UITableViewDelegate, MKMapViewDeleg
     }*/
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        for (index, restaurant) in Constants.sampleRest.enumerated() {
-            if restaurant.name == (view.annotation?.title)! {
-                tableView.scrollToRow(at: IndexPath(row:0, section: index), at: .top, animated: true)
+        if vegetarian {
+            for (index, restaurant) in Constants.sampleVegRest.enumerated() {
+                if restaurant.name == (view.annotation?.title)! {
+                    tableView.scrollToRow(at: IndexPath(row:0, section: index), at: .top, animated: true)
+                }
+            }
+        } else {
+            for (index, restaurant) in Constants.sampleRest.enumerated() {
+                if restaurant.name == (view.annotation?.title)! {
+                    tableView.scrollToRow(at: IndexPath(row:0, section: index), at: .top, animated: true)
+                }
             }
         }
     }
@@ -234,23 +245,41 @@ class FirstViewController: UIViewController, UITableViewDelegate, MKMapViewDeleg
 
 extension FirstViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-//        return restaurantResult.count
-        return restaurants.count
+        if vegetarian {
+            return Constants.sampleVegRest.count
+        }
+        
+        return restaurantResult.count
+//        return restaurants.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if vegetarian {
+            return Constants.sampleVegFood.count
+        }
+        
+        
         return restaurantFoodResult[section].count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return restaurantResult[section].name
-        return restaurants[section]
+        if vegetarian {
+            return Constants.sampleVegRest[section].name
+        }
+        return restaurantResult[section].name
+//        return restaurants[section]
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        let food = restaurantFoodResult[indexPath.section][indexPath.row]
+        var food = Food(name: "", rating: 0.0, image: "", price: 0.0, restaurant: "", tags: "")
+        
+        if vegetarian {
+            food = Constants.sampleVegFood[indexPath.row]
+        } else {
+            food = restaurantFoodResult[indexPath.section][indexPath.row]
+        }
         
         item.textLabel?.text = food.name
         item.detailTextLabel?.text = food.tags
@@ -263,8 +292,12 @@ extension FirstViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         
+        if vegetarian {
+            selectedFood = Constants.sampleVegFood[indexPath.row]
+        } else {
+            selectedFood = self.restaurantFoodResult[indexPath.section][indexPath.row]
+        }
         
-        selectedFood = self.restaurantFoodResult[indexPath.section][indexPath.row]
         performSegue(withIdentifier: "showFood", sender: nil)
         
         

@@ -88,7 +88,7 @@ extension RestaurantViewController: UITableViewDataSource {
         
         if indexPath.row == 2 { // Restaurant Tags
             let item = tableView.dequeueReusableCell(withIdentifier: "Info", for: indexPath)
-            item.textLabel?.text = "Vegetarian, Italian, Pizza\n"
+            item.textLabel?.text = "\n"
             item.selectionStyle = .none
             return item
         }

@@ -21,6 +21,7 @@ public struct Constants {
     
     static let dietsKey = "userDiets"
     static let cuisinesKey = "userCuisines"
+    static let savedKey = "saveForLater"
     
     // Realm
     static let syncURL = "192.168.1.208"
@@ -28,14 +29,19 @@ public struct Constants {
     static let password = "doraemon"
     
     // Sample Data
-    static let sampleRest = [Restaurant(name: "myBurgerLab", rating: 4.7, latitude: "3.0158647", longitude: "101.5665644", image: ""),
+    static let sampleRest = [//Restaurant(name: "myBurgerLab", rating: 4.7, latitude: "3.0158647", longitude: "101.5665644", image: ""),
                              Restaurant(name: "Salam Noodles", rating: 3.5, latitude: "2.926002", longitude: "101.65159", image: ""),
                              Restaurant(name: "Volcano Shabu Shabu Buffet", rating: 3.5, latitude: "2.9234974", longitude: "101.6601773", image: ""),
                              Restaurant(name: "Kung Fu Restaurant", rating: 3.5, latitude: "2.926002", longitude: "101.65159", image: ""),
                              Restaurant(name: "Monjo Coffee", rating: 3.5, latitude: "2.9233064", longitude: "101.6586543", image: ""),
                              Restaurant(name: "Kohyang", rating: 2.5, latitude: "2.9234436", longitude: "101.6593024", image: ""),
                              Restaurant(name: "Aroii Thai", rating: 1.5, latitude: "2.923352", longitude: "101.656470", image: "")]
-    static let sampleFood = [Food(name: "Burger", rating: 4, image: "https://image.ibb.co/dr8Sga/my_Burger_Lab.jpg", price: 7.50, restaurant: "myBurgerLab", tags: ""),
+    static let sampleVegRest = [Restaurant(name: "Aroii Thai", rating: 1.5, latitude: "2.923352", longitude: "101.656470", image: "")]
+    static let sampleVegFood = [Food(name: "Vegetarian Spicy Spring Roll", rating: 4, image: "https://scontent.fkul8-1.fna.fbcdn.net/v/t1.0-9/12654232_222384451439031_4364556327925280180_n.jpg?oh=eef3e87a8444dba79cd0fba572bc49a8&oe=5A29EE15", price: 7.00, restaurant: "Aroii Thai", tags: "Vegetarian"),
+                                Food(name: "Green Papaya Salad", rating: 4, image: "https://scontent.fkul8-1.fna.fbcdn.net/v/t1.0-9/12644681_222384271439049_3165451325673712194_n.jpg?oh=76242ec9178826fb75ac23c8824ade49&oe=5A34EB66", price: 7.00, restaurant: "Aroii Thai", tags: "Vegetarian"),
+                                Food(name: "Lemongrass Drink", rating: 4, image: "https://scontent.fkul8-1.fna.fbcdn.net/v/t1.0-9/12687967_222384304772379_909033313452959002_n.jpg?oh=0e528340aa652e8eb390c65b93e14a08&oe=59F48456", price: 7.00, restaurant: "Aroii Thai", tags: "Vegetarian"),
+                                Food(name: "Mango Sticky Rice", rating: 4, image: "https://scontent.fkul8-1.fna.fbcdn.net/v/t1.0-9/12592493_222384314772378_1552094407746597721_n.jpg?oh=3f82b63104bb142ab9223197210f8232&oe=5A27BB45", price: 4.00, restaurant: "Aroii Thai", tags: "Vegetarian")]
+    static let sampleFood = [//Food(name: "Burger", rating: 4, image: "https://image.ibb.co/dr8Sga/my_Burger_Lab.jpg", price: 7.50, restaurant: "myBurgerLab", tags: ""),
                              Food(name: "Beef Soup Noodles", rating: 4, image: "http://www.salamnoodles.com/assets/images/shop1.jpg", price: 8.00, restaurant: "Salam Noodles", tags: ""),
                              Food(name: "Mushroom Beef Noodles", rating: 4, image: "http://www.salamnoodles.com/assets/images/shop5.jpg", price: 5.00, restaurant: "Salam Noodles", tags: ""),
                              Food(name: "Braised Beef Noodles", rating: 3, image: "http://www.salamnoodles.com/assets/images/shop6.jpg", price: 6.00, restaurant: "Salam Noodles", tags: ""),
